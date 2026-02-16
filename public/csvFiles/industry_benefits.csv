@@ -1,0 +1,7 @@
+industry,compliance_feature,key_benefit,risk_profile
+Healthcare,HIPAA compliance reporting,Protects PHI with automated compliance tracking,High - frequent ransomware target
+Financial Services,SOC 2 Type II + regulatory support,Meets strict financial regulatory requirements,High - targeted by sophisticated attacks
+Professional Services,DLP for sensitive client data,Protects attorney-client privilege and confidential documents,Medium-High - valuable data target
+Manufacturing,OT/IoT device visibility,Covers industrial control systems and legacy devices,Medium - increasing ransomware focus
+Retail/Hospitality,PCI DSS compliance support,Protects customer payment data and transactions,Medium - credential stuffing attacks
+Mixed/General,Cross-industry compliance templates,Flexible compliance frameworks for diverse clients,Varies by client portfolio

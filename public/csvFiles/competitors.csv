@@ -1,0 +1,6 @@
+competitor,price_per_endpoint,platform_type,contract_terms,email_security,google_workspace_support,m365_integration,false_positive_rate,deployment_time,target_audience,weaknesses
+Sophos,2.81,XDR Ecosystem,Flexible,Weak,No,Yes,Medium,2-3 weeks,MSP + Channel Partners,Complex UI dependent on modules
+Coro,9.50,Unified Platform,Contract lock-ins,Built-in,Partial,Yes,High,1 week,IT Teams + MSP,Limited advanced features
+Huntress,9.39,Purpose-Built MDR,Flexible,API-only (no native),No,Yes,Low,1-2 weeks,MSP + SMB,Reactive system not proactive
+Blackpoint,6.65,MDR-Centric BYOEDR,Flexible,None,Partial,Yes,High,1-2 weeks,MSP,Confusing portal and difficult navigation
+Kaseya,6.74,IT Management Suite,3-year lock-ins,Built-in,Partial,Yes,Medium,3-4 weeks,MSP + IT Teams,Operational friction and complexity
