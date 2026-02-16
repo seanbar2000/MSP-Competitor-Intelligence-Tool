@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { loadAllData } from "../utils/csvParser";
 import "./ComparisonPage.css";
+import { calculateROI } from "../utils/ROICalculator";
 
 function ComparisonPage({ formData, onReset }) {
   const [csvData, setCsvData] = useState(null);
@@ -90,40 +91,7 @@ function ComparisonPage({ formData, onReset }) {
     );
   };
 
-  // Calculate ROI
-  const calculateROI = () => {
-    if (!competitor || formData.currentSolution === "None") {
-      return null;
-    }
-
-    // Extract number of endpoints from client base size
-    const endpointMap = {
-      "Under 500 endpoints": 500,
-      "500-2,000 endpoints": 1250, // midpoint
-      "2,000-5,000 endpoints": 3500, // midpoint
-      "5,000+ endpoints": 7500,
-    };
-    const endpoints = endpointMap[formData.clientBaseSize] || 500;
-    const competitorPrice = parseFloat(competitor.price_per_endpoint);
-    const guardzPrice = 2.5;
-
-    const currentMonthlyCost = competitorPrice * endpoints;
-    const guardzMonthlyCost = guardzPrice * endpoints;
-    const monthlySavings = currentMonthlyCost - guardzMonthlyCost;
-    const annualSavings = monthlySavings * 12;
-    console.log("guardz:", guardzMonthlyCost);
-
-    return {
-      endpoints,
-      competitorPrice: competitorPrice.toFixed(2),
-      currentMonthlyCost,
-      guardzMonthlyCost,
-      monthlySavings,
-      annualSavings,
-    };
-  };
-
-  const roi = calculateROI();
+  const roi = calculateROI(competitor, formData);
   // Generate "Why Switch" bullets
   const generateWhySwitchBullets = () => {
     const bullets = [];
@@ -152,7 +120,7 @@ function ComparisonPage({ formData, onReset }) {
       bullets.push(challengeMap[formData.biggestChallenge]);
     }
 
-    return bullets.slice(0, 4); // Return max 4 bullets
+    return bullets;
   };
 
   const whySwitchBullets = generateWhySwitchBullets();
