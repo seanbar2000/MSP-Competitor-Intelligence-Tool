@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { loadAllData } from "../utils/csvParser";
+import { loadAllData } from "../utils/CsvParser";
 import "./ComparisonPage.css";
 import { calculateROI } from "../utils/ROICalculator";
-
+import {
+  generateHeadline,
+  generateSubheading,
+} from "../utils/TextGenerationUtils";
 function ComparisonPage({ formData, onReset }) {
   const [csvData, setCsvData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -57,39 +60,39 @@ function ComparisonPage({ formData, onReset }) {
   );
 
   // Generate dynamic headline
-  const generateHeadline = () => {
-    const sizeMap = {
-      "Solo/Small (1-5 techs)": "Solo MSPs",
-      "Growing (6-15 techs)": "Growing MSPs",
-      "Established (16-50 techs)": "Established MSPs",
-      "Enterprise MSP (50+ techs)": "Enterprise MSPs",
-    };
+  // const generateHeadline = () => {
+  //   const sizeMap = {
+  //     "Solo/Small (1-5 techs)": "Solo MSPs",
+  //     "Growing (6-15 techs)": "Growing MSPs",
+  //     "Established (16-50 techs)": "Established MSPs",
+  //     "Enterprise MSP (50+ techs)": "Enterprise MSPs",
+  //   };
 
-    const size = sizeMap[formData.mspSize] || "MSPs";
-    const industry =
-      formData.industryFocus === "Mixed/General"
-        ? "Diverse Client Bases"
-        : `${formData.industryFocus} Clients`;
+  //   const size = sizeMap[formData.mspSize] || "MSPs";
+  //   const industry =
+  //     formData.industryFocus === "Mixed/General"
+  //       ? "Diverse Client Bases"
+  //       : `${formData.industryFocus} Clients`;
 
-    return `Built for ${size} Serving ${industry}`;
-  };
+  //   return `Built for ${size} Serving ${industry}`;
+  // };
 
   // Generate dynamic subheading based on challenge
-  const generateSubheading = () => {
-    const subheadingMap = {
-      "Vendor sprawl": "One unified platform. Zero vendor fatigue.",
-      "False positives": "95% auto-remediation. Less noise, more protection.",
-      "Email security": "Native email security. No add-ons needed.",
-      Margins: "Better margins. Flexible contracts. No lock-ins.",
-      Deployment: "Deploy in days, not weeks. Set and forget.",
-      Reporting: "Client-ready reports that sell your value.",
-    };
+  // const generateSubheading = () => {
+  //   const subheadingMap = {
+  //     "Vendor sprawl": "One unified platform. Zero vendor fatigue.",
+  //     "False positives": "95% auto-remediation. Less noise, more protection.",
+  //     "Email security": "Native email security. No add-ons needed.",
+  //     Margins: "Better margins. Flexible contracts. No lock-ins.",
+  //     Deployment: "Deploy in days, not weeks. Set and forget.",
+  //     Reporting: "Client-ready reports that sell your value.",
+  //   };
 
-    return (
-      subheadingMap[formData.biggestChallenge] ||
-      "Enterprise-grade security made simple."
-    );
-  };
+  //   return (
+  //     subheadingMap[formData.biggestChallenge] ||
+  //     "Enterprise-grade security made simple."
+  //   );
+  // };
 
   const roi = calculateROI(competitor, formData);
   // Generate "Why Switch" bullets
@@ -141,14 +144,14 @@ function ComparisonPage({ formData, onReset }) {
       default:
         return false;
     }
-  };
+  }; //
 
   return (
     <div className="comparison-page">
       {/* Hero Section */}
       <div className="hero-section">
-        <h1>{generateHeadline()}</h1>
-        <p className="subheading">{generateSubheading()}</p>
+        <h1>{generateHeadline(formData)}</h1>
+        <p className="subheading">{generateSubheading(formData)}</p>
       </div>
 
       {/* Comparison Table */}
