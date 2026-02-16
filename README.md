@@ -255,13 +255,17 @@ Pulls 3-4 personalized reasons from:
 
 ## What I'd Improve with More Time
 
-### Interactive ROI Calculator
+### 1. Interactive ROI Calculator
 
 **Feature:** Allow users to adjust the number of endpoints with a slider to see savings update in real-time.
 
 **Why:** Prospects could explore different scenarios and see exactly how Guardz pricing scales. This makes the value proposition tangible and helps them envision their specific use case.
 
-## Project Structure
+### 2. Interactive AI Chat-Bot for Guardz Q&A
+
+**Feature:** Embed an AI-powered chat assistant on the comparison page that allows prospects to ask questions about Guardz features, pricing, implementation, and how it specifically addresses their use case.
+
+**Why:** After seeing the comparison, prospects often have follow-up questions. Rather than waiting for a sales call, they can get instant, personalized answers that keep momentum high and address objections in real-time.
 
 ```
 msp-tool/
